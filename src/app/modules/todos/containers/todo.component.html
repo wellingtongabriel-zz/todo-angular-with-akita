@@ -1,0 +1,13 @@
+<app-todo-filter 
+    (onChangeFilter)="changeFilter($event)">
+</app-todo-filter>
+<br>
+<app-todo-create 
+    (onAddTodo)="addTodo($event)">
+</app-todo-create>
+<br>
+<app-todo-list 
+    [todos]="todos$ | async"
+    (onCompleteTask)="completeTask($event)"
+    (onDeleteTask)="deleteTask($event)">
+</app-todo-list>

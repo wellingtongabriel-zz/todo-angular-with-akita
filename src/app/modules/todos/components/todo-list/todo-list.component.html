@@ -1,0 +1,20 @@
+<h1>  List </h1>
+<ul>
+    <li *ngFor="let todo of todos"> 
+        
+        {{ todo.title }} 
+
+        <button 
+            *ngIf="!todo.completed" 
+            type="button" 
+            (click)="completeTask(todo.id)"> 
+            Completed 
+        </button> 
+
+        <button 
+            type="button" 
+            (click)="deleteTask(todo.id)"> 
+            Delete 
+        </button> 
+    </li>
+</ul>
