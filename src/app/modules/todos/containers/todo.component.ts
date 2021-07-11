@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { TodoModel } from "../models/todo.model";
-import { TodoService } from "../services/todo.service";
-import { TodosQuery } from "../store/todo.query";
+import { TodoService } from "../data-access/todo.service";
+import { TodosQuery } from "../data-access/todo.query";
 
 @Component({
     selector: 'app-todo',
     templateUrl: './todo.component.html'
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent {
 
     todos$: Observable<TodoModel[] | any>;
 
@@ -16,10 +16,6 @@ export class TodoComponent implements OnInit {
         private todosQuery: TodosQuery,
         private todoService: TodoService
     ) {
-        this.todos$ = of([]);
-    }
-        
-    ngOnInit(): void {
         this.todos$ = this.todosQuery.selectVisibleTodos$;
     }
 
